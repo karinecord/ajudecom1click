@@ -1,0 +1,116 @@
+"pt-br":
+  activerecord:
+    models:
+      disappeared:
+    attributes:
+      disappeared/gender:
+        female: "feminino"
+        male: "masculino"
+      disappeared/marital_status:
+        single: "solteiro(a)"
+        married: "casado(a)"
+        divorced: "divorciado(a)"
+        widower: "viúvo(a)"
+        other:   "outro"
+      disappeared:
+        name: "Nome:"
+        nickname: "Apelido:"
+        email: "Email:"
+        password: "Senha do email:"
+        id_number: "RG:"
+        cpf: "CPF:"
+        drivers_license: "CNH:"
+        date_of_birth: "Data nascimento:"
+        gender: "Gênero"
+        nationality: "Nacionalidade"
+        state: "Naturalidade:"
+        marital_status: "Estado cívil:"
+        address: "Endereço:"
+        telephone: "Telefone:"
+        relatives_id: "Parente:"
+        cell_phone: "Celular:"
+        photo: "Foto"
+    errors:
+      models:
+        disappeared:
+          attributes:
+            date_of_birth:
+              blank: "não pode ficar em branco"
+            name:
+              blank: "não pode ficar em branco"
+            state:
+              blank: "não pode ficar em branco"
+            address:
+              blank: "não pode ficar em branco"
+            photo:
+              blank: "não pode ficar em branco"
+            id_number:
+              taken: "já cadastrado"
+            password:
+              blank: "não pode ficar em branco"
+
+  disappeareds:
+    new:
+      title: "Novo desaparecido(a)"
+    index:
+       title: "Desaparecido(s) de %{relative_name}"
+       name: "Nome"
+       nickname: "Apelido"
+       id_number: "RG"
+       drivers_license: "CNH"
+       date_of_birth: "Nascimento"
+       gender: "Gênero"
+       nationality: "Nacionalidade"
+       state: "Naturalidade"
+       address: "Endereço"
+       telephone: "Telefone"
+       relatives_id: "Parente"
+       cell_phone: "Celular"
+       photo: "Foto"
+       notification_face: "Notificação do Facebook"
+       marital_status: "Estado cívil"
+       new_disappeared: "Novo desaparecido"
+       new_disappearance: "Novo desaparecimento"
+       show: "Visualizar"
+       edit: "Editar"
+       destroy: "Excluir"
+       confirm: "Tem certeza?"
+       relative_disappeared: "Parente dos desaparecidos"
+
+    edit:
+      title: "Editar desaparecido"
+    create:
+      success: "Criado(a) com sucesso."
+    update:
+      updated: "Atualizado(a) com sucesso."
+    destroy:
+      destroyed: "Destruído(a) com sucesso."
+    show:
+     name: "Nome"
+     nickname: "Apelido"
+     id_number: "RG"
+     cpf: "CPF"
+     drivers_license: "CNH"
+     date_of_birth: "Nascimento"
+     gender: "Gênero"
+     nationality: "Nacionalidade"
+     state: "Naturalidade"
+     address: "Endereço"
+     telephone: "Telefone"
+     relatives_id: "Parente"
+     cell_phone: "Celular"
+     marital_status: "Estado cívil"
+     photo: "Foto"
+     notification_face: "Notificação do Facebook"
+     edit: "Editar"
+     back: "Voltar"
+
+
+    form:
+      save: "Salvar"
+      back: "Voltar"
+
+  errors:
+    cpf:
+      invalid: "inválido"
+

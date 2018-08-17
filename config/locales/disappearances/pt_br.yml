@@ -1,0 +1,66 @@
+"pt-br":
+  activerecord:
+    models:
+      disappearance:
+    attributes:
+      disappearance:
+        date: "Data:"
+        hour: "Hora:"
+        number_police_report: "№ boletim de ocorrência:"
+        police_station: "Nome/Delegacia:"
+        disappearance_history: "Detalhes do ocorrido:"
+
+    errors:
+      models:
+        disappearance:
+          attributes:
+            email:
+              invalid: "Inválido"
+
+
+  disappearances:
+    form:
+      save: "Salvar"
+      back: "Voltar"
+    show:
+      disappeareds: "Desaparecidos"
+    new:
+      title: "Novo desaparecimento"
+    index:
+      title: "Desaparecido(s) de %{name}"
+      date: "Data"
+      hour: "Hora"
+      email: "Email"
+      notication_face: "Notificação do Facebook"
+      number_police_report: "№ boletim de ocorrência"
+      police_station: "Nome/Delegacia"
+      disappearance_history: "Detalhes do ocorrido"
+      show: "Visualizar"
+      edit: "Editar"
+      destroy: "Remover"
+      confirm: "Tem certeza?"
+      new_disappearance: "Novo desaparecimento"
+      disappeared: "Desaparecido"
+    show:
+      date: "Data"
+      hour: "Hora"
+      email: "Email"
+      notication_face: "Notificação do Facebook"
+      number_police_report: "№ boletim de ocorrência"
+      police_station: "Nome/Delegacia"
+      disappearance_history:
+      edit: "Editar"
+      back: "Voltar"
+    edit:
+      title: "Editando desaparecimento"
+
+
+    create:
+      success: "Criado(a) com sucesso."
+    update:
+      updated: "Atualizado(a) com sucesso."
+    destroy:
+      destroyed: "Destruído(a) com sucesso."
+
+
+
