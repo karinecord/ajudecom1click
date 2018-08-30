@@ -18,11 +18,19 @@ gem "mechanize"
 gem "nokogiri"
 gem "attr_encrypted", "3.1.0"
 gem 'kaminari'
+gem 'sass-rails', '~> 5.0'
+gem 'font-awesome-rails'
 # Solution for file uploads for Rails
 gem 'carrierwave', '1.2.2'
 gem 'carrierwave-i18n'
 gem 'mini_magick'
 gem 'mail'
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+#Translations for the devise gem
+gem 'devise-i18n'
+# Rails gem of the Bootstrap based admin theme SB Admin 2.
+gem 'bootstrap_sb_admin_base_v2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

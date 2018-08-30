@@ -1,0 +1,53 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+
+<p>
+  <strong><%=t('.relative_name')%>:</strong>
+  <%= @relative.relative_name %>
+</p>
+
+<p>
+  <strong><%=t('.id_number')%>:</strong>
+  <%= @relative.id_number %>
+</p>
+
+<p>
+  <strong><%=t('.relative_degree')%>:</strong>
+  <%= @relative.relative_degree_human %>
+</p>
+
+<p>
+  <strong><%=t('.address')%>:</strong>
+  <%= @relative.address %>
+</p>
+
+<p>
+  <strong><%=t('.telephone')%>:</strong>
+  <%= @relative.telephone %>
+</p>
+
+<p>
+  <strong><%=t('.email')%>:</strong>
+  <%= @relative.email %>
+</p>
+
+<p>
+  <strong><%=t('.cell_phone')%>:</strong>
+  <%= @relative.cell_phone %>
+</p>
+
+<p>
+  <strong><%=t('.disappeareds')%>:</strong>
+  <% @disappeareds.each do |disappeared|%>
+    <p> <%= link_to disappeared.name, relative_disappeared_path(@relative, disappeared)%></p>
+  <% end %>
+</p>
+
+
+
+
+<%= link_to t('.edit'), edit_relative_path(@relative), :class => "btn btn-primary"%>
+<%= link_to t('.back'), relatives_path, :class => "btn btn-primary"%>
+

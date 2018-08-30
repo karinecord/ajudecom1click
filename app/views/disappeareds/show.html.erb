@@ -1,0 +1,89 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+
+<p>
+  <strong><%=t('.name')%>:</strong>
+  <%= @disappeared.name %>
+</p>
+
+<p>
+  <strong><%=t('.email')%>:</strong>
+  <%= @disappeared.email %>
+</p>
+
+<p>
+  <strong><%=t('.notification_face')%>:</strong>
+  <%= @disappeared.notification_face ? "Sim":"Não" %>
+</p>
+
+<p>
+  <strong><%=t('.nickname')%>:</strong>
+  <%= @disappeared.nickname %>
+</p>
+
+<p>
+  <strong><%=t('.id_number')%>:</strong>
+  <%= @disappeared.id_number %>
+</p>
+
+<p>
+  <strong><%=t('.drivers_license')%>:</strong>
+  <%= @disappeared.drivers_license %>
+</p>
+
+<p>
+  <strong><%=t('.date_of_birth')%>:</strong>
+  <%= @disappeared.date_of_birth %>
+</p>
+
+<p>
+  <strong><%=t('.cpf')%>:</strong>
+  <%= @disappeared.cpf %>
+</p>
+
+<p>
+  <strong><%=t('.gender')%>:</strong>
+  <%= @disappeared.gender_human %>
+</p>
+
+<p>
+  <strong><%=t('.nationality')%>:</strong>
+  <%= @disappeared.nationality %>
+</p>
+
+<p>
+  <strong><%=t('.state')%>:</strong>
+  <%= @disappeared.state %>
+</p>
+
+<p>
+  <strong><%=t('.marital_status')%>:</strong>
+  <%= @disappeared.marital_status_human %>
+</p>
+
+<p>
+  <strong><%=t('.address')%>:</strong>
+  <%= @disappeared.address %>
+</p>
+
+<p>
+  <strong><%=t('.telephone')%>:</strong>
+  <%= @disappeared.telephone %>
+</p>
+
+<p>
+  <strong><%=t('.cell_phone')%>:</strong>
+  <%= @disappeared.cell_phone %>
+</p>
+
+<p>
+  <strong><%=t('.photo')%>:</strong>
+  <img src="<%= @disappeared.photo.url %>"/>
+
+</p>
+
+<%= link_to t('.edit'), edit_relative_disappeared_path(@relative, @disappeared), :class => "btn btn-primary" %>
+<%= link_to t('.back'), relative_disappeareds_path(@relative), :class => "btn btn-primary"%>
+

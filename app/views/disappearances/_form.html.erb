@@ -1,0 +1,60 @@
+<%= form_with(model: disappearance, url:[relative,disappeared,disappearance],local: true,:html => {:class => 'form-horizontal'}) do |form| %>
+
+    <%=form.hidden_field :disappeareds_id, value:params[:disappeared_id] %>
+    <div class="form-group">
+    <%= form.label :date, for: :date, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :date, id: :disappearance_date, class: "form-control", type: "text", data: {inputmask:"'alias': 'date', 'mask': '99/99/9999','rightAlign': false", validation: 'birthdate', 'validation-format' => 'dd/mm/yyyy'} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :hour, for: :hour, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :hour, id: :disappearance_hour, class: "form-control", type: "text" , data: {inputmask:"'mask': '99:99'", validation: 'time'} %>
+    </div>
+  </div>
+
+    <div class="form-group">
+      <%= form.label :number_police_report, for: :number_police_report, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :number_police_report, id: :number_police_report, class: "form-control", type: "text", maxlength:"9", data: {inputmask:"'alias': 'numeric', 'rightAlign': false, 'allowMinus': false"}%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :police_station, for: :police_station, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :police_station, id: :disappearance_police_station, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :disappearance_history, for: :disappearance_history, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_area  :disappearance_history, id: :disappearance_disappearance_history, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-2">
+        <%= form.submit t('.save') , class: 'btn btn-primary' %>
+        <%= link_to t('.back'), relative_disappeared_disappearances_path(disappeared), :class => "btn btn-primary" %>
+      </div>
+    </div>
+
+    <% if disappearance.errors.any? %>
+          <ul>
+            <% disappearance.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+
+    <% end %>
+<% end %>
+<script>
+    $.validate({
+        lang : 'pt',
+        modules : 'date'
+    });
+</script>

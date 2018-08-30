@@ -1,0 +1,64 @@
+<%= form_with(model: relative, local: true,:html => {:class => 'form-horizontal'}) do |form|%>
+
+  <div class="form-group">
+    <%= form.label :relative_name, for: :relative_name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :relative_name, id: :relative_name, class: "form-control", type: "text"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :id_number, for: :id_number, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :id_number, id: :id_number, class: "form-control", type: "text", maxlength:"10", data: {inputmask:"'alias': 'numeric', 'rightAlign': false, 'allowMinus': false"}%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :relative_degree, for: :relative_degree, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.select :relative_degree, options_for_select(Relative.relative_degree_type_list_for_select), {}, :class => "form-control", id: :relative_degree %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :address, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :address, class: "form-control", type: "text"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :telephone, for: :telephone, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :telephone, id: :telephone, class: "form-control", type: "text", data: {inputmask:"'alias': 'phone', 'mask': '(99) 9999-9999', 'rightAlign': false"}%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :email, for: :email, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :email, id: :email, class: "form-control", type: "text"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :cell_phone, for: :cell_phone, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :cell_phone, id: :cell_phone, class: "form-control",type: "text", data: {inputmask:"'alias': 'phone', 'mask': '(99) 99999-9999', 'rightAlign': false"}%>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.submit t('.save') , class: 'btn btn-primary' %>
+      <%= link_to t('.back'), relatives_path, :class => "btn btn-primary" %>
+    </div>
+  </div>
+  <% if relative.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <% relative.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+<% end %>
+
+
+
+

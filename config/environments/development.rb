@@ -23,6 +23,11 @@ Rails.application.configure do
   else
     config.action_controller.perform_caching = false
 
+    #devise
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+    config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+
     config.cache_store = :null_store
   end
 
