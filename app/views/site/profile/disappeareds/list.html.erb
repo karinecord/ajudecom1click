@@ -1,0 +1,46 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <% if flash[:notice] %>
+        <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+    <div class="page-header">
+      <h1><%=t('.title')%></h1>
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%=t('.name')%></th>
+        <th><%=t('.gender')%></th>
+        <th><%=t('.address')%></th>
+        <th><%=t('.telephone')%></th>
+        <th><%=t('.cell_phone')%></th>
+        <th><%=t('.notification_face')%></th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @disappeareds.each do |disappeared| %>
+          <tr>
+            <td><%= disappeared.name %></td>
+            <td><%= disappeared.gender_human %></td>
+            <td><%= disappeared.address %></td>
+            <td><%= disappeared.telephone %></td>
+            <td><%= disappeared.cell_phone %></td>
+            <td><%= disappeared.notification_face ? "Sim":"Não"   %></td>
+            <td><%= link_to t('.show'), site_profile_relative_disappeared_path(disappeared.relative,disappeared) %></td>
+            <td><%= link_to t('.edit'), edit_site_profile_relative_disappeared_path(disappeared.relative, disappeared) %></td>
+            <td><%= link_to t('.destroy'), site_profile_relative_disappeared_path(disappeared.relative,disappeared), method: :delete, data: { confirm: t('.confirm') }  %></td>
+            <td><%= link_to t('.new_disappearance'), new_site_profile_relative_disappeared_disappearance_path(disappeared.relative,disappeared) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+      <tfoot>
+      <td class="text-center" colspan="16"> <%=  paginate @disappeareds %></td>
+      <br>
+      </tfoot>
+    </table>
+  </div>
+</div>
+

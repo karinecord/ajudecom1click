@@ -1,0 +1,7 @@
+"pt-br":
+  activemodel:
+    attributes:
+      contact_form:
+        name: Nome
+        email: Email
+        content: Conteúdo

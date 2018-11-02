@@ -25,7 +25,10 @@ Rails.application.configure do
 
     #devise
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    config.action_controller.default_url_options = {:host => "localhost", :port => "3000"}
 
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
     config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 
     config.cache_store = :null_store
@@ -58,5 +61,4 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 
-  config.action_view.raise_on_missing_translations = false
 end

@@ -44,57 +44,59 @@
         relative_degree: "Grau parentesco"
 
 
-  relatives:
-    index:
-      relative_name: "Nome parente"
-      id_number: "RG"
-      address: "Endereço"
-      telephone: "Telefone"
-      email: "Email"
-      cell_phone: "Celular"
-      relative_degree: "Grau parentesco"
-      show: "Visualizar"
-      edit: "Editar"
-      destroy: "Excluir"
-      new_relative: "Novo familiar"
-      confirm: "Tem certeza?"
-      title: "Familiar"
-      add_disappeared: "Novo desaparecido"
+  backoffice:
+    relatives:
+      index:
+        relative_name: "Nome parente"
+        id_number: "RG"
+        address: "Endereço"
+        telephone: "Telefone"
+        email: "Email"
+        cell_phone: "Celular"
+        relative_degree: "Grau parentesco"
+        show: "Visualizar"
+        edit: "Editar"
+        destroy: "Excluir"
+        new_relative: "Novo familiar"
+        confirm: "Tem certeza?"
+        title: "Familiares"
+        add_disappeared: "Novo desaparecido"
 
-    new:
-      title: "Novo familiar"
-
-
-
-    show:
-      relative_name: "Nome parente"
-      id_number: "RG"
-      address: "Endereço"
-      telephone: "Telefone"
-      email: "Email"
-      cell_phone: "Celular"
-      disappeareds: "Desaparecidos"
-      relative_degree: "Grau parentesco"
-      edit: "Editar"
-      back: "Voltar"
+      new:
+        title: "Novo familiar"
 
 
-    edit:
-      title: "Editar familiar"
-    new:
-      title: "Novo familiar"
 
-    create:
-      success: "Criado(a) com sucesso."
-    update:
-      updated: "Atualizado(a) com sucesso."
-    destroy:
-      destroyed: "Destruído(a) com sucesso."
+      show:
+        relative_name: "Nome parente"
+        id_number: "RG"
+        address: "Endereço"
+        telephone: "Telefone"
+        email: "Email"
+        cell_phone: "Celular"
+        disappeareds: "Desaparecidos"
+        relative_degree: "Grau parentesco"
+        edit: "Editar"
+        back: "Voltar"
+        created_by: "Criado por"
 
 
-    form:
-      save: "Salvar"
-      back: "Voltar"
+      edit:
+        title: "Editar familiar"
+      new:
+        title: "Novo familiar"
+
+      create:
+        success: "Criado(a) com sucesso."
+      update:
+        updated: "Atualizado(a) com sucesso."
+      destroy:
+        destroyed: "Destruído(a) com sucesso."
+
+
+      form:
+        save: "Salvar"
+        back: "Voltar"
 
 
 
@@ -114,3 +116,55 @@
         other: "Exibindo <b>todas %{count}</b> %{entry_name}"
     more_pages:
       display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"
+
+
+  site:
+    profile:
+      relatives:
+        index:
+          relative_name: "Nome parente"
+          id_number: "RG"
+          address: "Endereço"
+          telephone: "Telefone"
+          email: "Email"
+          cell_phone: "Celular"
+          relative_degree: "Grau parentesco"
+          show: "Visualizar"
+          edit: "Editar"
+          destroy: "Excluir"
+          new_relative: "Novo familiar"
+          confirm: "Tem certeza?"
+          title: "Familiares"
+          add_disappeared: "Novo desaparecido"
+
+        new:
+          title: "Novo familiar"
+
+        show:
+          relative_name: "Nome parente"
+          id_number: "RG"
+          address: "Endereço"
+          telephone: "Telefone"
+          email: "Email"
+          cell_phone: "Celular"
+          disappeareds: "Desaparecidos"
+          relative_degree: "Grau parentesco"
+          edit: "Editar"
+          back: "Voltar"
+          created_by: "Criado por"
+
+        edit:
+          title: "Editar familiar"
+        new:
+          title: "Novo familiar"
+
+        create:
+          success: "Criado(a) com sucesso."
+        update:
+          updated: "Atualizado(a) com sucesso."
+        destroy:
+          destroyed: "Destruído(a) com sucesso."
+
+        form:
+          save: "Salvar"
+          back: "Voltar"

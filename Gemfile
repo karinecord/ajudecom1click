@@ -6,15 +6,37 @@ git_source(:github) do |repo_name|
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# bootstrap
-gem 'bootstrap-sass', '~> 3.3.7'
+
+source 'https://rails-assets.org' do
+  # Bootstrap
+  gem 'rails-assets-bootstrap', '3.3.7'
+  # Animate CSS
+  gem 'rails-assets-animate-css'
+  # Bootstrap Mardown
+  gem 'rails-assets-bootstrap-markdown'
+  # Marked
+  gem 'rails-assets-marked'
+  # Bootstrap Notify
+  gem 'rails-assets-bootstrap.growl'
+  # Animate CSS
+  gem 'rails-assets-animate-css'
+  # bootboxjs
+  gem 'rails-assets-bootbox', ' 4.4.0'
+end
+# jQuery UI for the Rails asset pipeline
+gem 'jquery-ui-rails'
 gem 'jquery-inputmask-rails'
 gem 'jquery-rails'
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use postgrees as the database for Active Record
 gem 'pg', '0.21.0'
 gem "mechanize"
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
+# Cloudinary GEM for Ruby on Rails integration
+gem 'cloudinary'
 gem "nokogiri"
 gem "attr_encrypted", "3.1.0"
 gem 'kaminari'
@@ -27,7 +49,6 @@ gem 'mini_magick'
 gem 'mail'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
-#Translations for the devise gem
 gem 'devise-i18n'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
@@ -50,6 +71,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Help ActiveRecord::Enum feature to work fine with I18n and simple_form.
+gem 'enum_help'
+# Minimal authorization through OO design and pure Ruby classes
+gem 'pundit'
+# Trabalhos assincronos (https://github.com/mperham/sidekiq)
+gem 'sidekiq', '5.1.3'
+# Scheduler for Ruby (at, in, cron and every jobs)
+gem 'sidekiq-cron', '1.0.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -60,10 +89,12 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # load environment variables from .env into ENV in development.
+  gem 'dotenv-rails'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # Access an IRB console on exception page or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

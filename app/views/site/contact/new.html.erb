@@ -1,0 +1,61 @@
+<h1> <%= t('.title') %></h1>
+<%= form_with(model: @contact, url: site_contact_index_path, local: true,
+              :html => {:class => 'form-horizontal'}) do |form| %>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, id: :name, class: "form-control", type: "text" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <%= form.label :email%>
+          <%= form.text_field :email, id: :email, class: "form-control", type: "email" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <%= form.label :content %>
+          <%= form.text_area :content, id: :counted, maxlength:"255", class: "form-control" %>
+          <p> Contagem atual de caracteres: <span id="char-count">0</span>/255</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit t('.send'), class: 'btn btn-primary' %>
+    </div>
+
+    <% if @contact.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+<% end %>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#char-count').html($('#counted').val().length);
+    });
+
+    $('#counted').keyup(function() {
+        $('#char-count').html($(this).val().length);
+    });
+
+    $('#char-count').html($('#counted').val().split(" ").join("").split('\n').join('').length);
+
+</script>

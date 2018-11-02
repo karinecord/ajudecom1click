@@ -1,0 +1,49 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+
+<p>
+  <strong><%=t('.date')%>:</strong>
+  <%= @disappearance.date %>
+</p>
+
+<p>
+  <strong><%=t('.hour')%>:</strong>
+  <%= @disappearance.hour %>
+</p>
+    <p>
+      <strong><%=t('.notification_found')%>:</strong>
+      <%= @disappeared.notification_found ? "Sim":"Não" %>
+    </p>
+
+<p>
+  <strong><%=t('.number_police_report')%>:</strong>
+  <%= @disappearance.number_police_report %>
+</p>
+
+<p>
+  <strong><%=t('.police_station')%>:</strong>
+  <%= @disappearance.police_station %>
+</p>
+
+<p>
+  <strong><%=t('.disappearance_history')%>:</strong>
+  <%= @disappearance.disappearance_history %>
+</p>
+
+<p>
+  <strong><%=t('.disappeareds')%>:</strong>
+<p> <%= link_to  @disappeared.name, site_profile_relative_disappeared_path(@relative, @disappeared)%></p>
+<p>
+  <strong><%=t('.created_by')%>:</strong>
+  <%= @disappearance.created_by.name %>
+</p>
+
+
+</p>
+
+
+<%= link_to t('.edit'), edit_site_profile_relative_disappeared_disappearance_path(@relative, @disappeared), :class => "btn btn-primary" %>
+<%= link_to t('.back'), site_profile_relative_disappeared_disappearances_path(@relative), :class => "btn btn-primary" %>
+</div>
+</div>

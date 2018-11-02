@@ -1,0 +1,9 @@
+"pt-br":
+  site:
+    contact:
+      new:
+        send: "Enviar"
+        title: "Formulário de Contato"
+  text: "Seja bem-vindo! Ao Ajude com 1 click!"
+  Message sent successfully: "Mensagem enviada com sucesso"
+

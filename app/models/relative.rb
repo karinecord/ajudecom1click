@@ -1,4 +1,7 @@
 class Relative < ApplicationRecord
+  has_many :disappeareds, foreign_key: "relatives_id", dependent: :destroy
+  belongs_to :created_by, polymorphic: true
+
   enum relative_degree: [:grandparents, :great_grandmother, :great_grandson, :companion, :spouse,
   :stepson, :ex_wife, :ex_husband, :son, :grandson, :father, :mother]
   validates :relative_name, :id_number, :relative_degree, :telephone, :cell_phone, :address, presence: true
@@ -6,7 +9,7 @@ class Relative < ApplicationRecord
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates_uniqueness_of :id_number
   before_save :downcase_fields
-  paginates_per 2
+
 
 
   def downcase_fields

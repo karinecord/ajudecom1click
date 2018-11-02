@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Ajude com 1 click!</title>
+
+  <%= stylesheet_link_tag    'application' %>
+  <%= stylesheet_link_tag    'site' %>
+
+  <%= javascript_include_tag 'application'%>
+  <%= javascript_include_tag 'site' %>
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<%= render partial:"layouts/site_shared/navigation" %>
+
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial:"layouts/site_shared/leftmenu" %>
+    </div>
+    <div class="col-md-9">
+      <%= yield %>
+    </div>
+  </div>
+
+
+</div><!-- /.container -->
+<%= render partial:"layouts/site_shared/footer" %>
+<%= render partial: "layouts/shared/notifications"  %>
+
+</body>
+</html>
+

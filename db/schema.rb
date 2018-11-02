@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830161543) do
+ActiveRecord::Schema.define(version: 20181031215503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180830161543) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "role"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -42,6 +44,10 @@ ActiveRecord::Schema.define(version: 20180830161543) do
     t.text "disappearance_history"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by_id"
+    t.string "created_by_type"
+    t.boolean "notification_found"
+    t.index ["created_by_type", "created_by_id"], name: "index_disappearances_on_created_by_type_and_created_by_id"
     t.index ["disappeareds_id"], name: "index_disappearances_on_disappeareds_id"
   end
 
@@ -62,11 +68,13 @@ ActiveRecord::Schema.define(version: 20180830161543) do
     t.string "cell_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.string "email"
-    t.string "notification_face"
     t.string "encrypted_password"
     t.string "encrypted_password_iv"
+    t.integer "created_by_id"
+    t.string "created_by_type"
+    t.boolean "notification_face", default: false
+    t.index ["created_by_type", "created_by_id"], name: "index_disappeareds_on_created_by_type_and_created_by_id"
     t.index ["relatives_id"], name: "index_disappeareds_on_relatives_id"
   end
 
@@ -87,6 +95,22 @@ ActiveRecord::Schema.define(version: 20180830161543) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "image"
+    t.bigint "disappeared_id"
+    t.index ["disappeared_id"], name: "index_photos_on_disappeared_id"
+  end
+
+  create_table "profile_members", force: :cascade do |t|
+    t.string "first_name"
+    t.string "second_name"
+    t.date "birthdate"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_profile_members_on_member_id"
+  end
+
   create_table "relatives", force: :cascade do |t|
     t.string "relative_name"
     t.bigint "id_number"
@@ -97,8 +121,13 @@ ActiveRecord::Schema.define(version: 20180830161543) do
     t.string "address", limit: 255, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by_id"
+    t.string "created_by_type"
+    t.index ["created_by_type", "created_by_id"], name: "index_relatives_on_created_by_type_and_created_by_id"
   end
 
   add_foreign_key "disappearances", "disappeareds", column: "disappeareds_id"
   add_foreign_key "disappeareds", "relatives", column: "relatives_id"
+  add_foreign_key "photos", "disappeareds"
+  add_foreign_key "profile_members", "members"
 end

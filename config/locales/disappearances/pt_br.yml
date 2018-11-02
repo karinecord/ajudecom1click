@@ -6,6 +6,7 @@
       disappearance:
         date: "Data:"
         hour: "Hora:"
+        notification_found: "Encontrado?"
         number_police_report: "№ boletim de ocorrência:"
         police_station: "Nome/Delegacia:"
         disappearance_history: "Detalhes do ocorrido:"
@@ -17,50 +18,113 @@
             email:
               invalid: "Inválido"
 
+  backoffice:
+    disappearances:
+      form:
+        save: "Salvar"
+        back: "Voltar"
+      show:
+        disappeareds: "Desaparecidos"
+      new:
+        title: "Novo desaparecimento"
+      index:
+        title: "Desaparecido(s) de %{name}"
+        date: "Data"
+        hour: "Hora"
+        email: "Email"
+        notication_face: "Notificação do Facebook"
+        number_police_report: "№ boletim de ocorrência"
+        police_station: "Nome/Delegacia"
+        disappearance_history: "Detalhes do ocorrido"
+        show: "Visualizar"
+        edit: "Editar"
+        destroy: "Remover"
+        confirm: "Tem certeza?"
+        new_disappearance: "Novo desaparecimento"
+        notification_found: "Encontrado?"
+        disappeared: "Desaparecido"
+      list:
+        title: "Desaparecimentos"
+        date: "Data"
+        hour: "Hora"
+        notification_found: "Encontrado?"
+        show: "Visualizar"
+        edit: "Editar"
+        destroy: "Remover"
+        confirm: "Tem certeza?"
+      show:
+        date: "Data"
+        hour: "Hora"
+        email: "Email"
+        notication_face: "Notificação do Facebook"
+        number_police_report: "№ boletim de ocorrência"
+        police_station: "Nome/Delegacia"
+        disappearance_history: "Detalhes do ocorrido"
+        disappeareds: "Desaparecido(s)"
+        edit: "Editar"
+        back: "Voltar"
+        created_by: "Criado por"
+      edit:
+        title: "Editando desaparecimento"
+      create:
+        success: "Criado(a) com sucesso."
+      update:
+        updated: "Atualizado(a) com sucesso."
+      destroy:
+        destroyed: "Destruído(a) com sucesso."
 
-  disappearances:
-    form:
-      save: "Salvar"
-      back: "Voltar"
-    show:
-      disappeareds: "Desaparecidos"
-    new:
-      title: "Novo desaparecimento"
-    index:
-      title: "Desaparecido(s) de %{name}"
-      date: "Data"
-      hour: "Hora"
-      email: "Email"
-      notication_face: "Notificação do Facebook"
-      number_police_report: "№ boletim de ocorrência"
-      police_station: "Nome/Delegacia"
-      disappearance_history: "Detalhes do ocorrido"
-      show: "Visualizar"
-      edit: "Editar"
-      destroy: "Remover"
-      confirm: "Tem certeza?"
-      new_disappearance: "Novo desaparecimento"
-      disappeared: "Desaparecido"
-    show:
-      date: "Data"
-      hour: "Hora"
-      email: "Email"
-      notication_face: "Notificação do Facebook"
-      number_police_report: "№ boletim de ocorrência"
-      police_station: "Nome/Delegacia"
-      disappearance_history:
-      edit: "Editar"
-      back: "Voltar"
-    edit:
-      title: "Editando desaparecimento"
-
-
-    create:
-      success: "Criado(a) com sucesso."
-    update:
-      updated: "Atualizado(a) com sucesso."
-    destroy:
-      destroyed: "Destruído(a) com sucesso."
-
-
-
+  site:
+    profile:
+      disappearances:
+        form:
+          save: "Salvar"
+          back: "Voltar"
+        show:
+          disappeareds: "Desaparecidos"
+        new:
+          title: "Novo desaparecimento"
+        index:
+          title: "Desaparecido(s) de %{name}"
+          date: "Data"
+          hour: "Hora"
+          email: "Email"
+          notification_found: "Encontrado?"
+          notication_face: "Notificação do Facebook"
+          number_police_report: "№ boletim de ocorrência"
+          police_station: "Nome/Delegacia"
+          disappearance_history: "Detalhes do ocorrido"
+          show: "Visualizar"
+          edit: "Editar"
+          destroy: "Remover"
+          confirm: "Tem certeza?"
+          new_disappearance: "Novo desaparecimento"
+          disappeared: "Desaparecido"
+        list:
+          title: "Desaparecimentos"
+          date: "Data"
+          hour: "Hora"
+          notification_found: "Encontrado?"
+          show: "Visualizar"
+          edit: "Editar"
+          destroy: "Remover"
+          confirm: "Tem certeza?"
+        show:
+          date: "Data"
+          hour: "Hora"
+          email: "Email"
+          notication_face: "Notificação do Facebook"
+          number_police_report: "№ boletim de ocorrência"
+          police_station: "Nome/Delegacia"
+          disappearance_history: "Detalhes do ocorrido"
+          disappeareds: "Desaparecido(s)"
+          edit: "Editar"
+          back: "Voltar"
+          created_by: "Criado por"
+        edit:
+          title: "Editando desaparecimento"
+        create:
+          success: "Criado(a) com sucesso."
+        update:
+          updated: "Atualizado(a) com sucesso."
+        destroy:
+          destroyed: "Destruído(a) com sucesso."

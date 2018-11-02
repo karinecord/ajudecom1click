@@ -1,0 +1,4 @@
+my_first_job:
+  cron: "*/30 * * * *" # A cada meia hora chama a verificacao de notificacoes
+  class: "CheckFacebookNotificationsJob"
+  queue: default

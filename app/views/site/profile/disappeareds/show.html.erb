@@ -1,0 +1,119 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+
+
+<p>
+  <strong><%=t('.name')%>:</strong>
+  <%= @disappeared.name %>
+</p>
+
+<p>
+  <strong><%=t('.email')%>:</strong>
+  <%= @disappeared.email %>
+</p>
+
+<p>
+  <strong><%=t('.notification_face')%>:</strong>
+  <%= @disappeared.notification_face ? "Sim":"Não" %>
+</p>
+
+<p>
+  <strong><%=t('.nickname')%>:</strong>
+  <%= @disappeared.nickname %>
+</p>
+
+<p>
+  <strong><%=t('.id_number')%>:</strong>
+  <%= @disappeared.id_number %>
+</p>
+
+<p>
+  <strong><%=t('.drivers_license')%>:</strong>
+  <%= @disappeared.drivers_license %>
+</p>
+
+<p>
+  <strong><%=t('.date_of_birth')%>:</strong>
+  <%= @disappeared.date_of_birth %>
+</p>
+
+<p>
+  <strong><%=t('.cpf')%>:</strong>
+  <%= @disappeared.cpf %>
+</p>
+
+<p>
+  <strong><%=t('.gender')%>:</strong>
+  <%= @disappeared.gender_human %>
+</p>
+
+<p>
+  <strong><%=t('.nationality')%>:</strong>
+  <%= @disappeared.nationality %>
+</p>
+
+<p>
+  <strong><%=t('.state')%>:</strong>
+  <%= @disappeared.state %>
+</p>
+
+<p>
+  <strong><%=t('.marital_status')%>:</strong>
+  <%= @disappeared.marital_status_human %>
+</p>
+
+<p>
+  <strong><%=t('.address')%>:</strong>
+  <%= @disappeared.address %>
+</p>
+
+<p>
+  <strong><%=t('.telephone')%>:</strong>
+  <%= @disappeared.telephone %>
+</p>
+
+<p>
+  <strong><%=t('.cell_phone')%>:</strong>
+  <%= @disappeared.cell_phone %>
+</p>
+
+<p>
+  <strong><%=t('.photo')%>:</strong>
+  <%= form_for @disappeared, url: site_profile_relative_disappeared_disappeared_photos_path(@relative,@disappeared ), html: { method: :post, multipart: true, :class => "form-inline"} do |f| %>
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-camera"></i></div>
+        <%= f.file_field :disappeared_photo, class: "form-control" %>
+      </div>
+    <%= f.submit t('.add_photo'), class: "btn btn-primary"%>
+  <% end %>
+  <% if @disappeared.photos %>
+    <div class="clearfix" style="margin-top: 10px">
+      <% @disappeared.photos.each do |photo| %>
+          <div class="pull-left text-center" style="margin-right: 5px;">
+
+            <%= link_to(image_tag(photo.image_url(:thumbnail), alt: 'Image'), photo.image_url, target: '_blank', class: 'img-responsive') %>
+            <%= link_to site_profile_relative_disappeared_disappeared_photo_path(@relative,@disappeared, photo.id),
+                        :method => :delete,
+                        data: { confirm: t("messages.are_you_sure_you_want_to_delete_this_image?") } do %>
+                <i class="fa fa-trash"></i>
+                <%= t("messages.delete") %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+
+</p>
+
+<p>
+  <strong><%=t('.created_by')%>:</strong>
+  <%= @disappeared.created_by.name %>
+</p>
+
+
+<%= link_to t('.edit'), edit_site_profile_relative_disappeared_path(@relative, @disappeared), :class => "btn btn-primary" %>
+<%= link_to t('.back'), site_profile_relative_disappeareds_path(@relative), :class => "btn btn-primary"%>
+
+</div>
+</div>

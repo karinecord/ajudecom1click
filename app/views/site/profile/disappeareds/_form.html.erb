@@ -1,0 +1,125 @@
+<%= form_with(model: disappeared, url:[:site, :profile, relative, disappeared], local: true, :html => {:class => 'form-horizontal', multipart: true}) do |form| %>
+
+    <%=form.hidden_field :relatives_id, value:params[:relative_id] %>
+    <div class="form-group">
+      <%= form.label :name, for: :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, id: :name, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :nickname, for: :nickname, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :nickname, id: :nickname, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :email, for: :email, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :email, id: :email, class: "form-control", type: "email"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password, for: :password, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :password, id: :password, class: "form-control",  type:"password" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :id_number, for: :id_number, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :id_number, id: :id_number, class: "form-control", type: "text", maxlength:"10", data: {inputmask:"'alias': 'numeric', 'rightAlign': false, 'allowMinus': false"}%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :cpf, for: :cpf, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :cpf, id: :cpf, class: "form-control", type: "text", maxlength:"14", data: {inputmask:"'alias': 'numeric', 'mask': '999.999.999.99','rightAlign': false, 'allowMinus': false"}%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :drivers_license, for: :drivers_license, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :drivers_license, id: :drivers_license, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :date_of_birth, for: :date_of_birth, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :date_of_birth, id: :date_of_birth, class: "form-control", type: "text", data: {inputmask:"'alias': 'date', 'mask': '99/99/9999','rightAlign': false"}%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :gender, for: :gender, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.select :gender, options_for_select(Disappeared.gender_type_list_for_select), {}, :class => "form-control", id: :gender %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :nationality, for: :nationality, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :nationality, id: :nationality, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :state, for: :state, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :state, id: :state, class: "form-control", type: "text"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :marital_status, for: :marital_status, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.select :marital_status, options_for_select(Disappeared.marital_status_type_list_for_select), {}, :class => "form-control", id: :marital_status %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :address, for: :address, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :address, id: :address, class: "form-control", type: "text", placeholder: "Informe o endereço completo com CEP e Bairro."%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :telephone, for: :telephone, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :telephone, id: :telephone, class: "form-control", type: "text",  data: {inputmask:"'alias': 'phone', 'mask': '(99) 9999-9999','rightAlign': false"}%>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.label :cell_phone, for: :cell_phone, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :cell_phone, id: :cell_phone, class: "form-control", type: "text", data: {inputmask:"'alias': 'phone', 'mask': '(99) 99999-9999', 'rightAlign': false"}%>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <%= form.submit t('.save') , class: 'btn btn-primary' %>
+        <%= link_to t('.back'), site_profile_relative_disappeareds_path(relative), :class => "btn btn-primary" %>
+      </div>
+
+    <% if @disappeared.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @disappeared.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+<% end %>

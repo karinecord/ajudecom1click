@@ -1,0 +1,41 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+  <div class="page-header">
+    <h1><%=t('.title')%></h1>
+  </div>
+  <div class="pull-right">
+    <%= link_to t('.new_relative'), new_backoffice_relative_path, :class => "btn btn-primary" %>
+  </div>
+<table class="table table-striped">
+  <thead>
+      <th><%=t('.relative_name')%></th>
+      <th><%=t('.relative_degree')%></th>
+      <th><%=t('.telephone')%></th>
+      <th><%=t('.cell_phone')%></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relatives.each do |relative| %>
+      <tr>
+        <td><%= relative.relative_name %></td>
+
+        <td><%= relative.relative_degree_human %></td>
+        <td><%= relative.telephone %></td>
+        <td><%= relative.cell_phone %></td>
+        <td><%= link_to t('.show'), backoffice_relative_path(relative)%></td>
+        <td><%= link_to t('.edit'), edit_backoffice_relative_path(relative) %></td>
+        <td><%= link_to t('.destroy'), backoffice_relative_path(relative), method: :delete, data: { confirm: t('.confirm') } %></td>
+        <td><%= link_to t('.add_disappeared'), new_backoffice_relative_disappeared_path(relative)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <td class="text-center" colspan="12"> <%=  paginate @relatives %></td>
+    <br>
+  </tfoot>
+</table>
+</div>
+</div>
