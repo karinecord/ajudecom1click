@@ -6,9 +6,7 @@ git_source(:github) do |repo_name|
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-ruby "2.5.0"
-
-
+ruby "ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]"
 
 source 'https://rails-assets.org' do
   # Bootstrap
