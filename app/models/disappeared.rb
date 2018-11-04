@@ -9,17 +9,16 @@ class Disappeared < ApplicationRecord
 
   before_save :downcase_fields
 
-  attr_encrypted :password, :key => "xw&(@q^lwe@aezz#ibzybqg@-m!+k_r1u*m#g*ej*_p%#6#^^c"
+  attr_encrypted :password, key: ENV.fetch('ENCRYPT_SECRET_KEY')
 
   validates :name, :cpf, :id_number, :date_of_birth, :gender, :state, :address, presence: true
   validates_uniqueness_of :id_number
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validate :check_email_and_password, on: :create
+  validate :check_email_and_password
 
-  def validate_each(record, attribute, value)
-    record.errors.add attribute, (options[:message] || "is not an email") unless
-        value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
-  end
+  scope :containing_email_password, ->{
+    where.not(email: [nil, ''], encrypted_password: [nil, ''])
+  }
 
   def downcase_fields
     self.name.downcase!
@@ -42,11 +41,6 @@ class Disappeared < ApplicationRecord
 
   def self.marital_status_type_list_for_select
     marital_statuses.map { |type, _index| [human_attribute_name("marital_status.#{type}"), type]}
-  end
-
-  def validate_each(record, attribute, value)
-    record.errors.add attribute, (options[:message] || "is not an email") unless
-        value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/
   end
 
   def check_email_and_password
