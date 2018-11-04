@@ -81,16 +81,27 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
   # config/environments/production.rb
 
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_mailer.default_url_options = { host: 'ajudecom1click.herokuapp.com' }
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => 'smtp.office365.com',
+      :port                 => 587,
+      :enable_starttls_auto => true,
+      :user_name            => ENV['SMTP_USERNAME'],
+      :password             => ENV['SMTP_PASSWORD'],
+      :domain               => 'ajudecom1click.herokuapp.com',
+      :authentication       => :login
+  }
 end
