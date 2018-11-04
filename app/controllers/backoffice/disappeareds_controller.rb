@@ -20,7 +20,6 @@ class Backoffice::DisappearedsController < ApplicationController
   # GET /disappeareds/1
   # GET /disappeareds/1.json
   def show
-    notification_email
   end
 
   # GET /disappeareds/new
@@ -72,33 +71,6 @@ class Backoffice::DisappearedsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def notification_email
-    mail_options = {
-        address: 'pop-mail.outlook.com',
-        port: 995,
-        user_name: @disappeared.email,
-        password: @disappeared.password,
-        enable_ssl: true
-    }
-    Mail.defaults do
-      retriever_method :pop3, mail_options
-    end
-
-    disappeared = @disappeared
-
-    @mail = Mail.new do
-      emails = Mail.all
-      emails.each do |email|
-        if !email.is_marked_for_delete? && email.subject.include?('marcou você no Facebook') #&& email.from.to_s.include?('<karinecord@gmail.com>')
-          disappeared.update(notification_face: true)
-          email.mark_for_delete = true
-        end
-      end
-    end
-    Mail.find_and_delete(:what => :first, :count => 1)
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
