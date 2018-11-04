@@ -65,10 +65,5 @@
   </div>
 </div>
 
-<% if flash[:notice] %>
-    <script>
-        $.notify(" <%= notice %> " , "success");
-    </script>
-<% end %>
 
 <%= render partial: 'backoffice/admins/shared/send_mail_modal' %>
