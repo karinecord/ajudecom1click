@@ -3,7 +3,7 @@ class CheckFacebookNotificationsJob < ApplicationJob
 
   def perform
     # Pega todos os Disappeared que tem email e senha diferente de nul
-    Disappeared.where.not(email: nil, encrypted_password: nil).each do |disappeared|
+    Disappeared.containing_email_password.each do |disappeared|
       # Para cada Disappeared, checa se tem notificao
       check_facebook_notification(disappeared)
     end
@@ -26,13 +26,12 @@ class CheckFacebookNotificationsJob < ApplicationJob
 
     @mail = Mail.new do
 
-      Mail.find(keys: ['NOT','SEEN']) do |email, imap, message_id|
-
+      Mail.all(keys: %w(NOT SEEN)) do |email, imap, message_id|
         if email.respond_to?(:subject) && email.subject.include?('marcou você')
-          disappeared_update.update(notification_face: true)
+          if disappeared_update.update_attribute(:notification_face, true)
+            imap.uid_store(message_id, '+FLAGS', [Net::IMAP::SEEN] )
+          end
         end
-
-        imap.uid_store(message_id, "+FLAGS", [Net::IMAP::SEEN] )
       end
     end
   end
