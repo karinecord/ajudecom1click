@@ -37,22 +37,22 @@ gem "mechanize"
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
 # Cloudinary GEM for Ruby on Rails integration
-gem 'cloudinary'
-gem "nokogiri"
+gem 'cloudinary', '1.9.1'
+gem "nokogiri", '1.8.4'
 gem "attr_encrypted", "3.1.0"
-gem 'kaminari'
+gem 'kaminari', '1.1.1'
 gem 'sass-rails', '~> 5.0'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '4.7.0.4'
 # Solution for file uploads for Rails
 gem 'carrierwave', '1.2.2'
-gem 'carrierwave-i18n'
-gem 'mini_magick'
-gem 'mail'
+gem 'carrierwave-i18n', '0.2.0'
+gem 'mini_magick', '4.8.0'
+gem 'mail', '2.7.0'
 # Flexible authentication solution for Rails with Warden.
-gem 'devise'
-gem 'devise-i18n'
+gem 'devise', '4.3.0'
+gem 'devise-i18n', '1.5.1'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
-gem 'bootstrap_sb_admin_base_v2'
+gem 'bootstrap_sb_admin_base_v2', '0.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -73,25 +73,27 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Help ActiveRecord::Enum feature to work fine with I18n and simple_form.
-gem 'enum_help'
+gem 'enum_help', '0.0.17'
 # Minimal authorization through OO design and pure Ruby classes
-gem 'pundit'
+gem 'pundit', '2.0.0'
 # Trabalhos assincronos (https://github.com/collectiveidea/delayed_job)
-gem 'delayed_job_active_record'
+gem 'delayed_job_active_record', '4.1.3'
+# Scheduler for Ruby (at, in, cron and every jobs)
+gem 'delayed_cron_job', '0.7.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', '0.0.3', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '3.8.0'
   # load environment variables from .env into ENV in development.
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '2.2.1'
 end
 
 group :development do
