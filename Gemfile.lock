@@ -104,17 +104,12 @@ GEM
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erubi (1.7.0)
-    et-orbi (1.1.6)
-      tzinfo
     execjs (2.7.0)
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
-    fugit (1.1.6)
-      et-orbi (~> 1.1, >= 1.1.6)
-      raabro (~> 1.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -185,7 +180,6 @@ GEM
     puma (3.11.0)
     pundit (2.0.0)
       activesupport (>= 3.0.0)
-    raabro (1.1.6)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -243,8 +237,6 @@ GEM
       netrc (~> 0.8)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    rufus-scheduler (3.5.2)
-      fugit (~> 1.1, >= 1.1.5)
     sass (3.5.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -339,7 +331,6 @@ DEPENDENCIES
   rails-assets-bootstrap.growl!
   rails-assets-marked!
   rails_12factor (= 0.0.3)
-  rufus-scheduler
   sass-rails (~> 5.0)
   selenium-webdriver (= 3.8.0)
   spring
