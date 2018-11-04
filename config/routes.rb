@@ -1,13 +1,7 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   get 'admin', to: 'backoffice/dashboard#index'
 
   namespace :backoffice do
-    authenticate :admin, lambda { |u| u.full_access? } do
-      mount Sidekiq::Web => '/sidekiq'
-    end
-
     resources :send_mail, only: [:edit, :create]
     resources :admins, except: [:show]
     get 'dashboard', to: 'dashboard#index'

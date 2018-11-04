@@ -76,10 +76,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'enum_help'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
-# Trabalhos assincronos (https://github.com/mperham/sidekiq)
-gem 'sidekiq', '5.1.3'
-# Scheduler for Ruby (at, in, cron and every jobs)
-gem 'sidekiq-cron', '1.0.4'
+# Trabalhos assincronos (https://github.com/collectiveidea/delayed_job)
+gem 'delayed_job_active_record'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
