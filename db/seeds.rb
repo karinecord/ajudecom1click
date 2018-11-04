@@ -12,8 +12,8 @@ puts "Cadastrando o ADMINISTRADOR Padrão..."
 Admin.create!(
     name: "Nayara Martins",
     email: "anjosdobem18@outlook.com",
-    password: "secret_123",
-    password_confirmation: "secret_123",
+    password: "123456",
+    password_confirmation: "123456",
     role: 0
 )
 
