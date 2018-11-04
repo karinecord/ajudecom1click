@@ -1,3 +1,13 @@
+<% if @disappeared.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% @disappeared.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with(model: disappeared, url:[:backoffice, relative, disappeared], local: true, :html => {:class => 'form-horizontal', multipart: true}) do |form| %>
 
     <%=form.hidden_field :relatives_id, value:params[:relative_id] %>
@@ -119,15 +129,5 @@
     <div class="form-group">
         <%= form.submit t('.save') , class: 'btn btn-primary' %>
         <%= link_to t('.back'), backoffice_relative_disappeareds_path(relative), :class => "btn btn-primary" %>
-      </div>
-
-    <% if @disappeared.errors.any? %>
-        <div class="alert alert-danger" role="alert">
-          <ul>
-            <% @disappeared.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+    </div>
 <% end %>
