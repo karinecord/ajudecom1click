@@ -38,7 +38,7 @@ gem "mechanize"
 gem 'faker'
 # Cloudinary GEM for Ruby on Rails integration
 gem 'cloudinary', '1.9.1'
-gem "nokogiri", '1.8.4'
+gem "nokogiri", '1.10.10'
 gem "attr_encrypted", "3.1.0"
 gem 'kaminari', '1.1.1'
 gem 'sass-rails', '~> 5.0'
